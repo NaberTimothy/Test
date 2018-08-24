@@ -2,8 +2,18 @@
 # Math library
 # Author: Sébastien Combéfis
 # Version: February 8, 2018
+from math import sqrt
 
 def fact(n):
+    result = n
+    if n ==0 or n ==1 :
+        result = 1
+    for i in range(n):
+        if i != 0:
+            result *= i
+    return result
+
+
     """Computes the factorial of a natural number.
     
     Pre: -
@@ -12,6 +22,16 @@ def fact(n):
     """
 
 def roots(a, b, c):
+
+    delta = b**2-(4*a*c)
+    if delta < 0:
+        return (0)
+    if delta == 0:
+        return (((-b)/(2*a)))
+    if delta > 0:
+        return ((-b-sqrt(delta))/(2*a),(-b+sqrt(delta))/(2*a))
+
+
     """Computes the roots of the ax^2 + bx + x = 0 polynomial.
     
     Pre: -
@@ -32,6 +52,6 @@ def integrate(function, lower, upper):
     pass
 
 if __name__ == '__main__':
-    print(fact(5))
+    print(fact(8))
     print(roots(1, 0, 1))
     print(integrate('x ** 2 - 1', -1, 1))
